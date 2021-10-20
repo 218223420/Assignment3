@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import za.ac.cput.Entity.Doctor;
 import za.ac.cput.Factory.DoctorFactory;
 
+import java.util.Objects;
+
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -20,9 +22,16 @@ import static org.junit.jupiter.api.Assertions.*;
  class DoctorControllerTest {
     private static Doctor doctor = DoctorFactory.createDoctor("Peace", "Smith", 48000.00);
 
+
+    public static  String user_Name ="root";
+    public static String password  = "@BhekaG1";
+
+
     @Autowired
     private TestRestTemplate restTemplate;
     private final String baseURL = "http://localhost:8080/doctor";
+
+
 
     @Test
     void a_create()
@@ -39,10 +48,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
     @Test
     void b_read() {
-        String  url = baseURL + "/read/" + doctor.getFirstName();
+        String  url = baseURL + "/read/" + doctor.getDoctorID();
         System.out.println("URL: " + url);
         ResponseEntity<Doctor> response = restTemplate.getForEntity(url, Doctor.class);
-        assertEquals(doctor.getFirstName(), response.getBody().getFirstName());
+        assertEquals(doctor.getDoctorID(), Objects.requireNonNull(response.getBody()).getDoctorID());
 
         //System.out.println("Read: " + read);
     }
@@ -73,10 +82,13 @@ import static org.junit.jupiter.api.Assertions.*;
         String url = baseURL + "/getall";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> response = restTemplate
+                .withBasicAuth(user_Name,password)
+                .exchange(url, HttpMethod.GET, entity, String.class);
         System.out.println("Show all:");
         System.out.println(response);
         System.out.println(response.getBody());
+
 
     }
 
