@@ -1,14 +1,4 @@
-package za.ac.cput.Repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-import za.ac.cput.Entity.Doctor;
-
-@Repository
-public interface DoctorRepository extends JpaRepository<Doctor, String>
-{
-
-}
 ///*  Doctor.java
 //    Repository for the Doctor
 //    Author: Bheka Gumede (218223420)
@@ -23,22 +13,22 @@ public interface DoctorRepository extends JpaRepository<Doctor, String>
 //import java.util.HashSet;
 //import java.util.Set;
 //
-//public class DoctorRepository implements IDoctorRepository
+//public class IDoctorRepository implements IDoctorRepository
 //
 //{
-//    private static DoctorRepository repository = null;
+//    private static IDoctorRepository repository = null;
 //    private Set<Doctor> databaseForDoctor = null;
 //
-//    private DoctorRepository()
+//    private IDoctorRepository()
 //    {
 //        databaseForDoctor = new HashSet<Doctor>();
 //    }
 //
-//    public static DoctorRepository getRepository()
+//    public static IDoctorRepository getRepository()
 //    {
 //        if(repository == null)
 //        {
-//            repository = new DoctorRepository();
+//            repository = new IDoctorRepository();
 //        }
 //        return repository;
 //    }

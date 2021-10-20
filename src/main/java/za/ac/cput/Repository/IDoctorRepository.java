@@ -1,16 +1,11 @@
+package za.ac.cput.Repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import za.ac.cput.Entity.Doctor;
 
-///*  Doctor.java
-//    Interface Repository for the Doctor
-//    Author: Bheka Gumede (218223420)
-//    Date: 30 July 2021
-// */
-//package za.ac.cput.Repository;
-//
-//import za.ac.cput.Entity.Doctor;
-//import java.util.Set;
-//
-//public interface IDoctorRepository extends IRepository<Doctor, String>
-//{
-//    public Set<Doctor> getAll();
-//}
+@Repository
+public interface IDoctorRepository extends JpaRepository<Doctor, String>
+{
+
+}

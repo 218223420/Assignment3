@@ -3,9 +3,8 @@ package za.ac.cput.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.Entity.Doctor;
-import za.ac.cput.Repository.DoctorRepository;
+import za.ac.cput.Repository.IDoctorRepository;
 import java.util.HashSet;
-import java.util.Locale;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -16,22 +15,8 @@ public class DoctorService implements IDoctorService
     private static DoctorService service = null;
 
     @Autowired
-    private DoctorRepository repository = null;
+    private IDoctorRepository repository = null;
 
-
-// private DoctorService()
-// {
-//     this.repository = DoctorRepository.getRepository();
-// }
-//
-// public static DoctorService getService()
-// {
-//     if(service == null)
-//     {
-//         service = new DoctorService();
-//     }
-//     return service;
-// }
 
     @Override
     public Doctor create(Doctor doctor)
