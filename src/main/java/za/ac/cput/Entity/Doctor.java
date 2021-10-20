@@ -9,7 +9,7 @@ package za.ac.cput.Entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="DoctorTable")
+@Table(name = "doctor_db")
 public class Doctor
 {
     @Id
