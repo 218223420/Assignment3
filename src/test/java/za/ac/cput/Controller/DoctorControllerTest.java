@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
     public static  String user_Name ="root";
-    public static String password  = "@BhekaG1";
+    public static String password  = "password";
 
 
     @Autowired
